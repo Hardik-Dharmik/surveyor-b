@@ -4,6 +4,7 @@ import com.app.surveyor.dtos.FormRequest;
 import com.app.surveyor.models.Form;
 import com.app.surveyor.payloads.ApiResponse;
 import com.app.surveyor.services.FormService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,14 +31,14 @@ public class FormController {
     }
 
     @PostMapping
-    public ResponseEntity<ApiResponse<Form>> createForm(@RequestBody FormRequest form) {
+    public ResponseEntity<ApiResponse<Form>> createForm(@Valid @RequestBody FormRequest form) {
         Form formSaved = formService.saveForm(form);
         ApiResponse<Form> apiResponse = new ApiResponse<>(200, "Form added successfully", formSaved, null);
         return ResponseEntity.ok(apiResponse);
     }
 
     @PutMapping("/{formId}")
-    public ResponseEntity<ApiResponse<Form>> updateForm(@PathVariable("formId") String formId, @RequestBody FormRequest form) {
+    public ResponseEntity<ApiResponse<Form>> updateForm(@PathVariable("formId") String formId, @Valid @RequestBody FormRequest form) {
         Form formSaved = formService.updateForm(formId, form);
         ApiResponse<Form> apiResponse = new ApiResponse<>(200, "Form updated successfully", formSaved, null);
         return ResponseEntity.ok(apiResponse);
