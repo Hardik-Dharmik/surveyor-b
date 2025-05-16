@@ -58,6 +58,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.vladmihalcea</groupId>
+			<artifactId>hibernate-types-60</artifactId> <!-- use -52 or -55 depending on your Hibernate version -->
+			<version>2.21.1</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

@@ -26,6 +26,7 @@ public class FormService {
         newForm.setName(formRequest.getName());
         newForm.setTitle(formRequest.getTitle());
         newForm.setDescription(formRequest.getDescription());
+        newForm.setFormBody(formRequest.getFormBody());
         return formRepository.save(newForm);
     }
 
@@ -34,6 +35,7 @@ public class FormService {
         formToBeUpdated.setName(formRequest.getName());
         formToBeUpdated.setTitle(formRequest.getTitle());
         formToBeUpdated.setDescription(formRequest.getDescription());
+        formToBeUpdated.setFormBody(formRequest.getFormBody());
         return formRepository.save(formToBeUpdated);
     }
 

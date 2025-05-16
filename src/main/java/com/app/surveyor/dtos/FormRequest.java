@@ -4,6 +4,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
+import java.util.Map;
+
 @Data
 public class FormRequest {
 
@@ -16,4 +18,6 @@ public class FormRequest {
 
     @Size(max = 500, message = "Description must be at most 500 characters")
     private String description;
+
+    private Map<String, Object> formBody;
 }
